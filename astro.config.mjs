@@ -5,5 +5,7 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  output: 'server'
+  output: 'server',
+  site: 'https://burin2301.github.io',
+  base: '/Astro-Tutorial-SpaceX',
 });
