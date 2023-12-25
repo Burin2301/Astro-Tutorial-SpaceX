@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import {getLaunchByID} from '../../services/apiService'
+
+const {id} = Astro.params
+
+let launch
+if(id){
+    launch = await getLaunchByID({id})
+}
+
+---
+
+
+<Layout title={`Lanzamiento ${launch.id}`}>
+    <article class="flex gap-y-4 flex-col">
+        <img
+        class="w-52 h-auto"
+        src={launch?.links.patch.small}
+        alt={launch?.name}
+        />
+
+        <h2 class="text-5xl text-white font-bold">Launch #{launch?.flight_number} </h2>
+
+        <p class="text-4xl text-white font-bold">#{launch?.details}</p>
+
+    </article>
+    
+</Layout>
